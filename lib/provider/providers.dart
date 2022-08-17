@@ -93,14 +93,23 @@ void cheakconnection()async{
 
                  });
               }
-              void inText(){
+              void alertBox(){
                 isNotText=true;
                 notifyListeners();
               }
-              // void innText(){
-              //   isNotText=true;
-              //   notifyListeners();
-              // }
+              void notAlertBox(){
+                isNotText=false;
+                notifyListeners();
+              }
+              bool isPassword=false;
+              void isNotPassword(){
+                isPassword=true;
+                notifyListeners();
+              }
+  void isNottPassword(){
+                isPassword=false;
+                notifyListeners();
+              }
 
 
 }

@@ -46,6 +46,8 @@ your mail.""",style: GoogleFonts.poppins(
                   textStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w600 ,color: color2),)),
                   SizedBox(height: height*0.032,),
                   ResetTextfield(
+                        controller: TextEditingController(),
+
                   onTap: (){},
                    text: "Email address",
                     onChanged: ((value) {

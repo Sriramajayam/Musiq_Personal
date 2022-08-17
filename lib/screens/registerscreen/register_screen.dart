@@ -38,6 +38,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                         SizedBox(height: height*0.032,),
                        ResetTextfield(
+                        controller: TextEditingController(),
                   onTap: (){
                 
                   },
@@ -53,6 +54,8 @@ class RegisterScreen extends StatelessWidget {
                         SizedBox(height: height*0.016,),
 
                    ResetTextfield(
+                        controller: TextEditingController(),
+
                   onTap: (){
                
                   },
@@ -68,6 +71,8 @@ class RegisterScreen extends StatelessWidget {
                         SizedBox(height: height*0.016,),
 
                          ResetTextfield(
+                        controller: TextEditingController(),
+
                   onTap: (){
                  
                   },
@@ -83,11 +88,15 @@ class RegisterScreen extends StatelessWidget {
                         SizedBox(height: height*0.016,),
 
                    ResetTextfield(
+                        controller: TextEditingController(),
+
                   onTap: (){
-                  pro.inText();
+                  pro.alertBox();
+            
                   },
                 text: "Password",
                  onChanged: ((value) {
+                  
                  }),
                   validator: ((value) {
                     
@@ -126,6 +135,8 @@ include 1 uppercase, 1 lowercase,1 number and
                    ):SizedBox(), 
                         
                          ResetTextfield(
+                        controller: TextEditingController(),
+
                   onTap: (){
                   
                   },
