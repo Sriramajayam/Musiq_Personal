@@ -106,10 +106,28 @@ void cheakconnection()async{
                 isPassword=true;
                 notifyListeners();
               }
-  void isNottPassword(){
+             void isNottPassword(){
                 isPassword=false;
                 notifyListeners();
               }
+              bool Error=false;
+               void isError(){
+                Error=false;
+                notifyListeners();
+              }
+               void isNoterror(){
+                Error=true;
+                notifyListeners();
+              }
+              bool conformError=false;
+                void conError(){
+                conformError=true;
+                notifyListeners();
+              }  void notConError(){
+                conformError=false;
+                notifyListeners();
+              }
+              
 
 
 }

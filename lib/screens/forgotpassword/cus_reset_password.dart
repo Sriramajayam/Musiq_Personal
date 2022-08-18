@@ -4,10 +4,11 @@ import 'package:loginproviderproject/constants/cons_file.dart';
 import 'package:loginproviderproject/provider/providers.dart';
 import 'package:loginproviderproject/screens/loginpage/signuppage.dart';
 import 'package:loginproviderproject/widgets/container_button.dart';
+import 'package:loginproviderproject/widgets/cus_re_pass.dart';
 import 'package:loginproviderproject/widgets/reset_password_widget.dart';
 import 'package:provider/provider.dart';
-class ResetPassword extends StatelessWidget {
-   ResetPassword({Key? key}) : super(key: key);
+class CusResetPassword extends StatelessWidget {
+   CusResetPassword({Key? key}) : super(key: key);
   final TextEditingController _newPassWord=TextEditingController();
   final TextEditingController _conformPassWord=TextEditingController();
   @override
@@ -26,6 +27,8 @@ class ResetPassword extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
+                      pro.conError();
+                      pro.isError();
                       pro.isNottPassword();
                       pro.notAlertBox();
                       Navigator.pop(context);
@@ -45,57 +48,51 @@ class ResetPassword extends StatelessWidget {
                   ),),
               SizedBox(height: 24,),
         
-                ResetTextfield(
+               CusResetTextfield(
                   controller: _newPassWord,
                   onTap: (){
+                    if(_newPassWord.text.isEmpty){
                   pro.alertBox();
-               pro.isNottPassword();
+                    
+                    }
+                  pro.isNottPassword();
 
                   },
                 text: "New password",
                  onChanged: ((value) {
-                  pro.isNottPassword();
-     
-                    RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-               
-                  if(value.length>7){
-                   pro.notAlertBox();
+                  if(value.isEmpty){
+                  pro.isNoterror();
+                 pro.alertBox();
+
+                  }if(value.isNotEmpty){
+                  pro.isError();
+
                   }
-                  if (!regex.hasMatch(value)) {
-
-                      pro.alertBox();
-                    }if(value.length==0){
-                pro.isNottPassword();
-
-                   pro.notAlertBox();
-
-                    }
+                RegExp regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+                  if(value.length>7){
+               pro.notAlertBox();
+                  }
+                  if (!regex.hasMatch(_newPassWord.text)) {
+                  pro.alertBox();
+                }if(value.length==0){
+              //  pro.notAlertBox();
+                }
                  }
                  ),
-                  validator: ((value) {
-                    RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-                    if(value==null||value.isEmpty){
-                    print(value);
-                    // pro.innText();
-                     return  "Field is required";
-                     
-                    }
-                    else if (!regex.hasMatch(value)) {
-                       "";
-                    }
-      }),
+                
                    obsecure: false, 
                    suffix: Text(""),),
+                 
               
-              
-              SizedBox(height: 10),
+              SizedBox(height: 5),
                    
                    Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-       pro. isPassword==true? Text("field is required",style: TextStyle(color: Colors.red),):Text(""),
-                       pro.isNotText==true?
+                   pro.Error==true? Text("Field is Required",style: TextStyle(color: Colors.red),):SizedBox(),
+        SizedBox(height: 5,),
+                   pro.isNotText==true?
                        Container(
                         height: 80,
                         width: double.maxFinite,
@@ -123,30 +120,42 @@ include 1 uppercase, 1 lowercase,1 number and
                           ),
                         ),
                
-                       ):SizedBox()
+                       ):SizedBox(),
+                       CusResetTextfield(
+                  controller: _conformPassWord,
+                  onTap: (){
+                    if(_newPassWord.text.isEmpty){
+                   pro.isNoterror();
+                      
+                    }
+               
+              
+                  },
+                text: "Conform Password",
+                 onChanged: ((value) {
+                  print(value);
+                  print(_newPassWord.text);
+               if(value!=_newPassWord.text){
+                print("object");
+                  pro.notConError();
+                  }else{
+                pro.conError();
+
+                  }
+                
+                 }
+                 ),
+                
+                   obsecure: false, 
+                   suffix: Text(""),),
+                  pro.conformError==false? Text("Field does't match",style: TextStyle(
+                    color: Colors.red
+                   ),):SizedBox()
+                 
                      ],
                    ),
                    
-                    ResetTextfield(
-                      controller: _conformPassWord,
-                  onTap: (){
-               
-                pro.isNotPassword();
-                  },
-                text: "Confirm password",
-                 onChanged: ((value) {
-             
-
-                 }),
-                  validator: ((value) {
-                  if(value!=_newPassWord.text){
-                    return "Password does't match";
-                  }
-                  }),
-                   obsecure: false, 
-                   suffix: Text(""),), 
-               
-             
+                 
               SizedBox(height: 154,),
         
                   InkWell(
