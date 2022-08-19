@@ -27,6 +27,7 @@ class CusResetPassword extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
+                 pro.isNotCon();
                       pro.conError();
                       pro.isError();
                       pro.isNottPassword();
@@ -61,22 +62,30 @@ class CusResetPassword extends StatelessWidget {
                 text: "New password",
                  onChanged: ((value) {
                   if(value.isEmpty){
+                    pro.isNotCon();
                   pro.isNoterror();
-                 pro.alertBox();
+                  pro.alertBox();
+
 
                   }if(value.isNotEmpty){
                   pro.isError();
 
                   }
                 RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+        RegExp(r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#\$&*~]).{8,}$');
                   if(value.length>7){
                pro.notAlertBox();
-                  }
-                  if (!regex.hasMatch(_newPassWord.text)) {
-                  pro.alertBox();
-                }if(value.length==0){
-              //  pro.notAlertBox();
+                  }  else if (!regex.hasMatch(_newPassWord.text)) {
+                   pro.alertBox();
+                }
+                  
+                  if (regex.hasMatch(_newPassWord.text)) {
+                 pro.isNotCon();
+
+                }
+                 else{
+                 pro.isNotCon();
+                 
                 }
                  }
                  ),
@@ -90,6 +99,7 @@ class CusResetPassword extends StatelessWidget {
                    Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
+                    pro.NotConform==true?  Text("Invalid Email Format",style: TextStyle(color: Colors.red)):SizedBox(),
                    pro.Error==true? Text("Field is Required",style: TextStyle(color: Colors.red),):SizedBox(),
         SizedBox(height: 5,),
                    pro.isNotText==true?
@@ -124,10 +134,16 @@ include 1 uppercase, 1 lowercase,1 number and
                        CusResetTextfield(
                   controller: _conformPassWord,
                   onTap: (){
+                RegExp regex =
+        RegExp(r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#\$&*~]).{8,}$');
                     if(_newPassWord.text.isEmpty){
                    pro.isNoterror();
+                  pro.isNotCon();
                       
                     }
+                   else if (!regex.hasMatch(_newPassWord.text)) {
+                  pro.isCon();
+                }
                
               
                   },

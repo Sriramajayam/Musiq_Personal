@@ -127,6 +127,15 @@ void cheakconnection()async{
                 conformError=false;
                 notifyListeners();
               }
+              bool NotConform=false;
+               void isNotCon(){
+                NotConform=false;
+                notifyListeners();
+              }
+               void isCon(){
+                NotConform=true;
+                notifyListeners();
+              }
               
 
 
