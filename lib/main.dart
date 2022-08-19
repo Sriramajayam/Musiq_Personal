@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginproviderproject/provider/new_account_provider.dart';
 import 'package:loginproviderproject/provider/providers.dart';
 import 'package:loginproviderproject/screens/bottomnavigationbar/bottom.dart';
 import 'package:loginproviderproject/screens/bottomnavigationbar/bottom_nav_bar.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MultiProvider(providers: [
-   ChangeNotifierProvider(create: (context)=>LoginProvider())
+      ChangeNotifierProvider(create: (context)=>LoginProvider()),
+      ChangeNotifierProvider(create: (context)=>RegisterProvider()),
     ], 
     
     child:

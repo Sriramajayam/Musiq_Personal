@@ -48,16 +48,13 @@ class CusResetPassword extends StatelessWidget {
                      FontWeight.w400,color: color2)
                   ),),
               SizedBox(height: 24,),
-        
                CusResetTextfield(
                   controller: _newPassWord,
                   onTap: (){
                     if(_newPassWord.text.isEmpty){
                   pro.alertBox();
-                    
                     }
                   pro.isNottPassword();
-
                   },
                 text: "New password",
                  onChanged: ((value) {
@@ -65,11 +62,8 @@ class CusResetPassword extends StatelessWidget {
                     pro.isNotCon();
                   pro.isNoterror();
                   pro.alertBox();
-
-
                   }if(value.isNotEmpty){
                   pro.isError();
-
                   }
                 RegExp regex =
         RegExp(r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#\$&*~]).{8,}$');
@@ -78,18 +72,14 @@ class CusResetPassword extends StatelessWidget {
                   }  else if (!regex.hasMatch(_newPassWord.text)) {
                    pro.alertBox();
                 }
-                  
                   if (regex.hasMatch(_newPassWord.text)) {
                  pro.isNotCon();
-
                 }
                  else{
                  pro.isNotCon();
-                 
                 }
                  }
                  ),
-                
                    obsecure: false, 
                    suffix: Text(""),),
                  

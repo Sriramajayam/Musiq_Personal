@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/contant_color.dart';
+import 'package:loginproviderproject/provider/new_account_provider.dart';
 import 'package:loginproviderproject/provider/providers.dart';
 import 'package:loginproviderproject/widgets/container_button.dart';
+import 'package:loginproviderproject/widgets/cus_re_pass.dart';
 import 'package:loginproviderproject/widgets/reset_password_widget.dart';
 import 'package:provider/provider.dart';
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
-
+   RegisterScreen({Key? key}) : super(key: key);
+  TextEditingController _fullNamee=TextEditingController();
+    TextEditingController _emailAddress=TextEditingController();
+    TextEditingController _userName=TextEditingController();
+    TextEditingController _password=TextEditingController();
+    TextEditingController _conformPassWord=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var pro=Provider.of<LoginProvider>(context);
+  
+    var pro=Provider.of<RegisterProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
@@ -37,75 +44,135 @@ class RegisterScreen extends StatelessWidget {
                       ],
                     ),
                         SizedBox(height: height*0.032,),
-                       ResetTextfield(
-                        controller: TextEditingController(),
+                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                   CusResetTextfield(
+                  controller: _fullNamee,
                   onTap: (){
-                
-                  },
-                text: "Full Name",
-                 onChanged: ((value) {
-                 }),
-                  validator: ((value) {
                     
-                  }),
-                   obsecure: false, 
-                   suffix: Text(""),
-                   ),
+                  },
+                  text:"Full Name",
+                  onChanged: ((value) {
+                  if(value==null||value.isEmpty){
+                  pro.isFullFieldReqired(true);
+                  }else if(_fullNamee.text.isNotEmpty){
+                  pro.isFullFieldReqired(false);
+
+                  }
+                  
+                  print(value);
+                  }
+                  ),
+                  obsecure: false, 
+                  suffix: Text(""),),
+                 
+                  SizedBox(height: height*0.008,),
+                  pro.FullNameField==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox()
+                         ],
+                       ),
                         SizedBox(height: height*0.016,),
 
-                   ResetTextfield(
-                        controller: TextEditingController(),
-
+                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       CusResetTextfield(
+                            controller: _emailAddress,
                   onTap: (){
                
                   },
                 text: "Email Address",
                  onChanged: ((value) {
+                  if(value.isEmpty){
+                    pro.isEmailAddressFieldReqired(true);
+                    pro.isvalidEmail(false);
+
+                  }else if(value.isNotEmpty){
+                  pro.isEmailAddressFieldReqired(false);
+                  }
+                  
+                  
+                  if (!RegExp(r'\S+@\S+\.\S+').hasMatch(_emailAddress.text)) {
+                     pro.isvalidEmail(true);
+                  }if(_emailAddress.text.length<0){
+                   
+
+                  } 
                  }),
-                  validator: ((value) {
-                    
-                  }),
-                   obsecure: false, 
-                   suffix: Text(""),
+                  
+                       obsecure: false, 
+                       suffix: Text(""),
+                       ),
+                        pro.EmailAddress==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+                   pro.ValidEmail==true?Text("Invalid Email Format",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+                     ],
                    ),
                         SizedBox(height: height*0.016,),
 
-                         ResetTextfield(
-                        controller: TextEditingController(),
+                         Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             CusResetTextfield(
+                        controller: _userName,
 
                   onTap: (){
                  
                   },
                 text: "Username",
                  onChanged: ((value) {
+                if(value.isEmpty){
+                    pro.isUsernameFieldReqired(true);
+                  }if(value.isNotEmpty){
+                    pro.isUsernameFieldReqired(false);
+                  }
                  }),
-                  validator: ((value) {
-                    
-                  }),
+                 
                    obsecure: false, 
                    suffix: Text(""),
                    ),
+                   pro.Username==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+                    
+                           ],
+                         ),
                         SizedBox(height: height*0.016,),
 
-                   ResetTextfield(
-                        controller: TextEditingController(),
+                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       CusResetTextfield(
+                            controller: _password,
 
                   onTap: (){
-                  pro.alertBox();
+               
             
                   },
                 text: "Password",
                  onChanged: ((value) {
-                  
+                   if(value.isEmpty){
+                    pro.isPasswordFieldReqired(true);
+                  }if(value.isNotEmpty){
+                    pro.isPasswordFieldReqired(false);
+                  }
                  }),
-                  validator: ((value) {
-                    
-                  }),
-                   obsecure: false, 
-                   suffix: Text(""),
-                   ),
+                  
+                       obsecure: false, 
+                       suffix: Text(""),
+                       ),
+                        SizedBox(height: height*0.008,),
+
+                  pro.Password==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
                         SizedBox(height: height*0.016,),
-                        pro.isNotText==true?
+                       
                    Container(
                     height: 80,
                     width: double.maxFinite,
@@ -132,23 +199,36 @@ include 1 uppercase, 1 lowercase,1 number and
                         ),
                       ),
                     ),
-                   ):SizedBox(), 
+                   ),
+                     ]
+                   ),
                         
-                         ResetTextfield(
-                        controller: TextEditingController(),
+                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             CusResetTextfield(
+                        controller:_conformPassWord,
 
                   onTap: (){
                   
                   },
                 text: "Confirm Password",
                  onChanged: ((value) {
+                   if(value.isEmpty){
+                    pro.isConfirmPasswordFieldReqired(true);
+                  }if(value.isNotEmpty){
+                    pro.isConfirmPasswordFieldReqired(false);
+                  }
                  }),
-                  validator: ((value) {
-                    
-                  }),
+                
                    obsecure: false, 
                    suffix: Text(""),
                    ),
+                   pro.ConfirmPassword==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+                           ],
+                         ),
                    SizedBox(height: height*0.150,),
                    ContainerButton(text: "Create account")
 

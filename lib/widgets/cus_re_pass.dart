@@ -7,7 +7,6 @@ class CusResetTextfield extends StatelessWidget {
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
   final VoidCallback onTap;
-
   final Widget suffix;
   final String text;
     final bool obsecure;
@@ -46,6 +45,7 @@ class CusResetTextfield extends StatelessWidget {
             onTap: onTap,
             obscureText: obsecure,
           onChanged: onChanged,
+          // keyboardType: TextInputType.text,
           autovalidateMode:AutovalidateMode.onUserInteraction,
           // validator:validator,
           style: TextStyle(color: color2),
@@ -61,8 +61,7 @@ class CusResetTextfield extends StatelessWidget {
   ),
        suffixIcon: suffix, 
 contentPadding: EdgeInsets.only(top: 10,bottom: 0,left: 10), 
-// fillColor: Color.fromRGBO(255, 255, 255, 0.1),
-// filled: false ,
+
 focusColor: color2 ,
  focusedBorder: OutlineInputBorder(
 borderRadius: BorderRadius.circular(15)
