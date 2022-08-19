@@ -14,6 +14,10 @@ class RegisterScreen extends StatelessWidget {
     TextEditingController _userName=TextEditingController();
     TextEditingController _password=TextEditingController();
     TextEditingController _conformPassWord=TextEditingController();
+    // @override
+    // void dispose(){
+    //   super.dispose();
+    // }
   @override
   Widget build(BuildContext context) {
   
@@ -32,7 +36,13 @@ class RegisterScreen extends StatelessWidget {
                      Row(
                       children: [
                         InkWell(
-                          onTap: (){
+                          onTap: (){ 
+                            pro.isFullFieldReqired(false);
+                            pro.isAlertBox(false);
+                            pro.isConfirmPasswordFieldReqired(false);
+                            pro.isPasswordFieldReqired(false);
+                            pro.isUsernameFieldReqired(false);
+                            pro.isEmailAddressFieldReqired(false);
                             Navigator.pop(context);
                           },
                           child: Icon(Icons.arrow_back_ios,color: color2,)),
@@ -50,17 +60,20 @@ class RegisterScreen extends StatelessWidget {
                    CusResetTextfield(
                   controller: _fullNamee,
                   onTap: (){
-                    
+                      if(_fullNamee.text.isEmpty
+                  ){
+                 pro.isFullFieldReqired(true);
+                 
+                  }
                   },
                   text:"Full Name",
                   onChanged: ((value) {
+                     
                   if(value==null||value.isEmpty){
                   pro.isFullFieldReqired(true);
                   }else if(_fullNamee.text.isNotEmpty){
                   pro.isFullFieldReqired(false);
-
                   }
-                  
                   print(value);
                   }
                   ),
@@ -81,25 +94,28 @@ class RegisterScreen extends StatelessWidget {
                        CusResetTextfield(
                             controller: _emailAddress,
                   onTap: (){
-               
+                if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty
+                  ){
+                 pro.isFullFieldReqired(true);
+                  pro.isEmailAddressFieldReqired(true);
+                  }
                   },
                 text: "Email Address",
                  onChanged: ((value) {
                   if(value.isEmpty){
                     pro.isEmailAddressFieldReqired(true);
                     pro.isvalidEmail(false);
-
-                  }else if(value.isNotEmpty){
+                  } else if(value.isNotEmpty){
                   pro.isEmailAddressFieldReqired(false);
+                  if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                     pro.isvalidEmail(true);
+                  }
+                  } if (RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                     pro.isvalidEmail(false);
                   }
                   
-                  
-                  if (!RegExp(r'\S+@\S+\.\S+').hasMatch(_emailAddress.text)) {
-                     pro.isvalidEmail(true);
-                  }if(_emailAddress.text.length<0){
-                   
 
-                  } 
+                
                  }),
                   
                        obsecure: false, 
@@ -122,6 +138,12 @@ class RegisterScreen extends StatelessWidget {
                         controller: _userName,
 
                   onTap: (){
+                    if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty
+                  ){
+                 pro.isFullFieldReqired(true);
+                  pro.isEmailAddressFieldReqired(true);
+                    pro.isUsernameFieldReqired(true);
+                  }
                  
                   },
                 text: "Username",
@@ -151,17 +173,44 @@ class RegisterScreen extends StatelessWidget {
                             controller: _password,
 
                   onTap: (){
-               
+                   
+               if(_password.text.isEmpty){
+                pro.isAlertBox(true);
+               }
+               if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
+                  _password.text.isEmpty){
+                 pro.isFullFieldReqired(true);
+                  pro.isEmailAddressFieldReqired(true);
+                    pro.isUsernameFieldReqired(true);
+                   pro.isPasswordFieldReqired(true);
+                  }
             
                   },
                 text: "Password",
-                 onChanged: ((value) {
-                   if(value.isEmpty){
-                    pro.isPasswordFieldReqired(true);
-                  }if(value.isNotEmpty){
-                    pro.isPasswordFieldReqired(false);
+                 onChanged: (value) {
+                  RegExp regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    
+
+
+                    print(regex.hasMatch(value));
+                    
+                 if(!regex.hasMatch(value)){
+                   pro.isAlertBox(true);
+                  }else {
+                   pro.isAlertBox(false); 
+                    print(pro);
+                  }if(value.isEmpty){
+                   pro.isPasswordFieldReqired(true);
+                  }else{
+                  pro.isPasswordFieldReqired(false);
+           
+
                   }
-                 }),
+            
+                
+                   },
+                  
                   
                        obsecure: false, 
                        suffix: Text(""),
@@ -172,7 +221,7 @@ class RegisterScreen extends StatelessWidget {
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
                         SizedBox(height: height*0.016,),
-                       
+                  pro.Alertbox==true  ?     
                    Container(
                     height: 80,
                     width: double.maxFinite,
@@ -192,14 +241,13 @@ include 1 uppercase, 1 lowercase,1 number and
           textStyle: TextStyle(
             color: color3,fontSize: 10,fontWeight: FontWeight.w400
           )
-        ),
-        
-        ),
+            ),
+             ),
                           ],
                         ),
                       ),
                     ),
-                   ),
+                   ):SizedBox(),
                      ]
                    ),
                         
@@ -210,7 +258,15 @@ include 1 uppercase, 1 lowercase,1 number and
                         controller:_conformPassWord,
 
                   onTap: (){
-                  
+                  if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
+                  _password.text.isEmpty&&_conformPassWord.text.isEmpty){
+                 pro.isFullFieldReqired(true);
+                  pro.isEmailAddressFieldReqired(true);
+                    pro.isUsernameFieldReqired(true);
+                   pro.isPasswordFieldReqired(true);
+                 pro.isConfirmPasswordFieldReqired(true);
+                    
+                  }
                   },
                 text: "Confirm Password",
                  onChanged: ((value) {
@@ -230,11 +286,7 @@ include 1 uppercase, 1 lowercase,1 number and
                            ],
                          ),
                    SizedBox(height: height*0.150,),
-                   ContainerButton(text: "Create account")
-
-                   
-                  
-               
+                   ContainerButton(text: "Create account"),
                ],
            ),
          ),

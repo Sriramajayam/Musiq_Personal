@@ -66,9 +66,9 @@ class CusResetPassword extends StatelessWidget {
                   pro.isError();
                   }
                 RegExp regex =
-        RegExp(r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#\$&*~]).{8,}$');
+               RegExp(r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#\$&*~]).{8,}$');
                   if(value.length>7){
-               pro.notAlertBox();
+                  pro.notAlertBox();
                   }  else if (!regex.hasMatch(_newPassWord.text)) {
                    pro.alertBox();
                 }
@@ -129,13 +129,10 @@ include 1 uppercase, 1 lowercase,1 number and
                     if(_newPassWord.text.isEmpty){
                    pro.isNoterror();
                   pro.isNotCon();
-                      
                     }
                    else if (!regex.hasMatch(_newPassWord.text)) {
                   pro.isCon();
-                }
-               
-              
+                  }
                   },
                 text: "Conform Password",
                  onChanged: ((value) {

@@ -4,7 +4,6 @@ import 'package:loginproviderproject/provider/providers.dart';
 import 'package:loginproviderproject/screens/bottomnavigationbar/bottom.dart';
 import 'package:loginproviderproject/screens/bottomnavigationbar/bottom_nav_bar.dart';
 import 'package:loginproviderproject/screens/networkconnectivity/network_connectivity.dart';
-
 import 'package:provider/provider.dart';
  void main(){
   runApp(MyApp());

@@ -7,6 +7,7 @@ class RegisterProvider extends ChangeNotifier{
   bool Password=false;
   bool ConfirmPassword=false;
   bool ValidEmail=false;
+  bool Alertbox=false;
   void isFullFieldReqired(bool changes){
   FullNameField=changes;
   notifyListeners();
@@ -30,6 +31,12 @@ class RegisterProvider extends ChangeNotifier{
   } 
   void isvalidEmail(bool status){
    ValidEmail=status;
+  notifyListeners();
   }
+   void isAlertBox(bool status){
+   Alertbox=status;
+   notifyListeners();
+  }
+
 
 }
