@@ -37,6 +37,7 @@ class RegisterScreen extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: (){ 
+                            pro.isFieldMatch(false);
                             pro.isFullFieldReqired(false);
                             pro.isAlertBox(false);
                             pro.isConfirmPasswordFieldReqired(false);
@@ -153,12 +154,20 @@ class RegisterScreen extends StatelessWidget {
                   }if(value.isNotEmpty){
                     pro.isUsernameFieldReqired(false);
                   }
+                  if(RegExp(r'\s').hasMatch(value)){
+                   pro.isSpaceField(true);
+                  }else{
+                   pro.isSpaceField(false);
+                   }
                  }),
                  
-                   obsecure: false, 
+                   obsecure: false,
                    suffix: Text(""),
                    ),
                    pro.Username==true?Text("Field is Required",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+                     pro.Space==true?Text("Field does not contain space",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
                     
@@ -201,19 +210,40 @@ class RegisterScreen extends StatelessWidget {
                    pro.isAlertBox(false); 
                     print(pro);
                   }if(value.isEmpty){
+                    
                    pro.isPasswordFieldReqired(true);
                   }else{
                   pro.isPasswordFieldReqired(false);
-           
-
                   }
+
+                
+                //   if(_password.value!=_conformPassWord.value){
+                //   pro.isFieldMatch(true);
+                //   }else{
+                //   pro.isFieldMatch(false);
+                    
+                //   }
+
+                //  if(_password.text.isEmpty){
+                //  pro.isFieldMatch(false);
+
+                  // }
+                // //  pro.isFieldMatch(false);
+
+                //   }
             
                 
                    },
                   
                   
-                       obsecure: false, 
-                       suffix: Text(""),
+                       obsecure: pro.passwordVisibliti==false?true:false, 
+                       suffix: InkWell(
+                        onTap: (() {
+                          pro.isPasswordVisiblity();
+                        }),
+                         child: Icon(pro.passwordVisibliti==false?Icons.visibility_off:
+                         Icons.visibility,color: color2,),
+                       ),
                        ),
                         SizedBox(height: height*0.008,),
 
@@ -269,20 +299,55 @@ include 1 uppercase, 1 lowercase,1 number and
                   }
                   },
                 text: "Confirm Password",
+
+
                  onChanged: ((value) {
-                   if(value.isEmpty){
-                    pro.isConfirmPasswordFieldReqired(true);
-                  }if(value.isNotEmpty){
-                    pro.isConfirmPasswordFieldReqired(false);
-                  }
+                //    if(value.isEmpty){
+                //     pro.isConfirmPasswordFieldReqired(true);
+                //  pro.isFieldMatch(false);
+
+                //   }else if(value.isNotEmpty){
+                //     pro.isConfirmPasswordFieldReqired(false);
+                //   }
+                //   else if(value!=_password.text){
+                //  pro.isFieldMatch(true);
+                //   }else{
+                //  pro.isFieldMatch(false);
+
+                //   }
+                if(value!=_password.text){
+                    pro.isFieldMatch(true);
+
+                }else if(value==_password.text){
+                 pro.isFieldMatch(false);
+
+                }
+                if(value.isEmpty){
+                     pro.isConfirmPasswordFieldReqired(true);
+                     pro.isFieldMatch(false);
+
+                }else{
+                     pro.isConfirmPasswordFieldReqired(false);
+                }
+
+                  
                  }),
                 
-                   obsecure: false, 
-                   suffix: Text(""),
+                   obsecure: pro.ConfirmpasswordVisibliti==false?true:false,
+                   suffix:InkWell(
+                    onTap: () {
+                      pro.isConfirmPassword();
+
+                    },
+                    child: Icon( pro.ConfirmpasswordVisibliti==false?Icons.visibility_off:Icons.visibility_off,color: color2,)),
                    ),
                    pro.ConfirmPassword==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
+                    pro.FieldMatch==true?Text("Field does'nt Match",style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
+                   ),):SizedBox(),
+
                            ],
                          ),
                    SizedBox(height: height*0.150,),

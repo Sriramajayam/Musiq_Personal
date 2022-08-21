@@ -8,6 +8,7 @@ class RegisterProvider extends ChangeNotifier{
   bool ConfirmPassword=false;
   bool ValidEmail=false;
   bool Alertbox=false;
+  bool FieldMatch=false;
   void isFullFieldReqired(bool changes){
   FullNameField=changes;
   notifyListeners();
@@ -35,6 +36,26 @@ class RegisterProvider extends ChangeNotifier{
   }
    void isAlertBox(bool status){
    Alertbox=status;
+   notifyListeners();
+  }
+  void isFieldMatch(bool status){
+   FieldMatch=status;
+   notifyListeners();
+  }
+  bool Space=false;
+   void isSpaceField(bool status){
+   Space=status;
+   notifyListeners();
+  }
+  bool passwordVisibliti=false;
+   void isPasswordVisiblity(){
+   passwordVisibliti=!passwordVisibliti;
+   notifyListeners();
+  } 
+  bool ConfirmpasswordVisibliti=false;
+  
+  void isConfirmPassword(){
+   ConfirmpasswordVisibliti=!ConfirmpasswordVisibliti;
    notifyListeners();
   }
 

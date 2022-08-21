@@ -89,7 +89,7 @@ class CusResetPassword extends StatelessWidget {
                    Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-                    pro.NotConform==true?  Text("Invalid Email Format",style: TextStyle(color: Colors.red)):SizedBox(),
+                    pro.NotConform==true?  Text("Invalid Password Format",style: TextStyle(color: Colors.red)):SizedBox(),
                    pro.Error==true? Text("Field is Required",style: TextStyle(color: Colors.red),):SizedBox(),
         SizedBox(height: 5,),
                    pro.isNotText==true?
