@@ -37,6 +37,8 @@ class RegisterScreen extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: (){ 
+                            pro.isSpaceField(false);
+                            pro.isvalidEmail(false);
                             pro.isFieldMatch(false);
                             pro.isFullFieldReqired(false);
                             pro.isAlertBox(false);
@@ -197,45 +199,41 @@ class RegisterScreen extends StatelessWidget {
                   },
                 text: "Password",
                  onChanged: (value) {
-                  RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+              //     RegExp regex =
+              // RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     
-
-
-                    print(regex.hasMatch(value));
-                    
-                 if(!regex.hasMatch(value)){
-                   pro.isAlertBox(true);
-                  }else {
-                   pro.isAlertBox(false); 
-                    print(pro);
-                  }if(value.isEmpty){
-                    
-                   pro.isPasswordFieldReqired(true);
-                  }else{
-                  pro.isPasswordFieldReqired(false);
-                  }
-
+              // if(value.isEmpty){
+              // pro.isPasswordFieldReqired(true);
+              // print(pro.FieldMatch);
+              //      pro.isFieldMatch(false );
+              
+              //   } 
+              //   else if(value!=_conformPassWord.text){
+              //     print(pro.FieldMatch);
                 
-                //   if(_password.value!=_conformPassWord.value){
-                //   pro.isFieldMatch(true);
-                //   }else{
-                //   pro.isFieldMatch(false);
-                    
-                //   }
+              //      pro.isFieldMatch(true);
+              //     pro.isPasswordFieldReqired(false);
+              //   }
+              //  else if(!regex.hasMatch(value)){
+              //      pro.isAlertBox(true);
+                  
+              //     }else{
+              //      pro.isPasswordFieldReqired(false);
+              //     //  pro.isFieldMatch(false);
+              //      pro.isAlertBox(false);
 
-                //  if(_password.text.isEmpty){
-                //  pro.isFieldMatch(false);
-
-                  // }
-                // //  pro.isFieldMatch(false);
-
-                //   }
+                 
+              //     }
+                 
+                 if(value.isEmpty){
+                  pro.isPasswordFieldReqired(true);
+                 }
             
-                
-                   },
+                 
+                 
+                   
                   
-                  
+                 },
                        obsecure: pro.passwordVisibliti==false?true:false, 
                        suffix: InkWell(
                         onTap: (() {
@@ -294,44 +292,34 @@ include 1 uppercase, 1 lowercase,1 number and
                   pro.isEmailAddressFieldReqired(true);
                     pro.isUsernameFieldReqired(true);
                    pro.isPasswordFieldReqired(true);
-                 pro.isConfirmPasswordFieldReqired(true);
+                //  pro.isConfirmPasswordFieldReqired(true);
                     
                   }
                   },
                 text: "Confirm Password",
 
 
-                 onChanged: ((value) {
-                //    if(value.isEmpty){
-                //     pro.isConfirmPasswordFieldReqired(true);
-                //  pro.isFieldMatch(false);
+                 onChanged: (value) {
+               
+               if(value.isEmpty){
+                pro.isConfirmPasswordFieldReqired(true);
+                  pro.isFieldMatch(false);
+                print(pro.FieldMatch);
+              
+               }
+               else if(value!=_password.text){
+                  pro.isFieldMatch(true);
+                pro.isConfirmPasswordFieldReqired(false);
 
-                //   }else if(value.isNotEmpty){
-                //     pro.isConfirmPasswordFieldReqired(false);
-                //   }
-                //   else if(value!=_password.text){
-                //  pro.isFieldMatch(true);
-                //   }else{
-                //  pro.isFieldMatch(false);
+               }
+               else{
+                pro.isConfirmPasswordFieldReqired(false);
+                  pro.isFieldMatch(false);
 
-                //   }
-                if(value!=_password.text){
-                    pro.isFieldMatch(true);
-
-                }else if(value==_password.text){
-                 pro.isFieldMatch(false);
-
-                }
-                if(value.isEmpty){
-                     pro.isConfirmPasswordFieldReqired(true);
-                     pro.isFieldMatch(false);
-
-                }else{
-                     pro.isConfirmPasswordFieldReqired(false);
-                }
-
-                  
-                 }),
+               }
+               
+               
+                },
                 
                    obsecure: pro.ConfirmpasswordVisibliti==false?true:false,
                    suffix:InkWell(
