@@ -221,14 +221,26 @@ class RegisterScreen extends StatelessWidget {
               //      pro.isPasswordFieldReqired(false);
               //     //  pro.isFieldMatch(false);
               //      pro.isAlertBox(false);
-
-                 
+  
               //     }
-                 
                  if(value.isEmpty){
+                      pro.isFieldMatch(false);  
                   pro.isPasswordFieldReqired(true);
+                 }else if(value!=_conformPassWord.text){
+                     print("vfjh");
+                      pro.isFieldMatch(true);
+                      if(_conformPassWord.text.length==0){
+                      pro.isFieldMatch(false);
+
+                      }                                                                                                                                                                                                                                                                                                             
                  }
-            
+                 
+                 else{
+                  pro.isPasswordFieldReqired(false);
+                      pro.isFieldMatch(false);                                                                                                                                                                                                                                                                                                             
+                     
+                 }
+              
                  
                  
                    
