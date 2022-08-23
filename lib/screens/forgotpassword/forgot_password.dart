@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/cons_file.dart';
+import 'package:loginproviderproject/provider/forgot_passsword_provider.dart';
 import 'package:loginproviderproject/screens/forgotpassword/otp_screen.dart';
 import 'package:loginproviderproject/widgets/container_button.dart';
+import 'package:loginproviderproject/widgets/cus_re_pass.dart';
 import 'package:loginproviderproject/widgets/reset_password_widget.dart';
+import 'package:provider/provider.dart';
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pro=Provider.of<ForgotPasswordProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    TextEditingController _forgotController=TextEditingController();
+  
     return
     Scaffold(
       backgroundColor: color1,
@@ -45,24 +49,14 @@ with your account. We will send an OTP to
 your mail.""",style: GoogleFonts.poppins(
                   textStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w600 ,color: color2),)),
                   SizedBox(height: height*0.032,),
-                  ResetTextfield(
-                        controller: TextEditingController(),
-
-                  onTap: (){},
-                   text: "Email address",
-                    onChanged: ((value) {
-                      
-                    }), 
-                    validator: ((value) {
-                     if(value==null||value.isEmpty){
-                           return "Field is Required";
-                     }  if (!RegExp(r'\S+@\S+\.\S+')
-                                                  .hasMatch(value)) {
-                                                return "Please enter a valid email address";
-                                              }
-                    }), 
-                    obsecure: false,
-                     suffix: Text("")),
+                 CustomeTextfield(onTap: (){},
+                  text: "Email Address", 
+                  onChanged: (value){
+                    pro.emailError(value);
+                  },
+                   obsecure: false,
+                    suffix: Text("")),
+                    Text(pro.forgotEmail.error,style: TextStyle(color: Colors.red),),
                      SizedBox(height: height*0.100,),
                      InkWell(
                       onTap: (() {
