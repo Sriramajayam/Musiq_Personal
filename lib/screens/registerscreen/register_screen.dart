@@ -60,29 +60,30 @@ class RegisterScreen extends StatelessWidget {
                        Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                          children: [
-                   CusResetTextfield(
-                  controller: _fullNamee,
-                  onTap: (){
-                      if(_fullNamee.text.isEmpty
-                  ){
-                 pro.isFullFieldReqired(true);
+                //    CusResetTextfield(
+                //   controller: _fullNamee,
+                //   onTap: (){
+                //       if(_fullNamee.text.isEmpty
+                //   ){
+                //  pro.isFullFieldReqired(true);
                  
-                  }
-                  },
-                  text:"Full Name",
-                  onChanged: ((value) {
+                //   }
+                //   },
+                //   text:"Full Name",
+                //   onChanged: ((value) {
                      
-                  if(value==null||value.isEmpty){
-                  pro.isFullFieldReqired(true);
-                  }else if(_fullNamee.text.isNotEmpty){
-                  pro.isFullFieldReqired(false);
-                  }
-                  print(value);
-                  }
-                  ),
-                  obsecure: false, 
-                  suffix: Text(""),),
+                //   if(value==null||value.isEmpty){
+                //   pro.isFullFieldReqired(true);
+                //   }else if(_fullNamee.text.isNotEmpty){
+                //   pro.isFullFieldReqired(false);
+                //   }
+                //   print(value);
+                //   }
+                //   ),
+                //   obsecure: false, 
+                //   suffix: Text(""),),
                  
+                  
                   SizedBox(height: height*0.008,),
                   pro.FullNameField==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
@@ -94,36 +95,42 @@ class RegisterScreen extends StatelessWidget {
                    Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-                       CusResetTextfield(
-                            controller: _emailAddress,
-                  onTap: (){
-                if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty
-                  ){
-                 pro.isFullFieldReqired(true);
-                  pro.isEmailAddressFieldReqired(true);
-                  }
-                  },
-                text: "Email Address",
-                 onChanged: ((value) {
-                  if(value.isEmpty){
-                    pro.isEmailAddressFieldReqired(true);
-                    pro.isvalidEmail(false);
-                  } else if(value.isNotEmpty){
-                  pro.isEmailAddressFieldReqired(false);
-                  if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                     pro.isvalidEmail(true);
-                  }
-                  } if (RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                     pro.isvalidEmail(false);
-                  }
+                //        CusResetTextfield(
+                //             controller: _emailAddress,
+                
+                
+                
+                //   onTap: (){
+                // if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty
+                //   ){
+                //  pro.isFullFieldReqired(true);
+                //   pro.isEmailAddressFieldReqired(true);
+                //   }
+                //   },
+                // text: "Email Address",
+                //  onChanged: ((value) {
+                //   if(value.isEmpty){
+                //     pro.isEmailAddressFieldReqired(true);
+                //     pro.isvalidEmail(false);
+                //   } else if(value.isNotEmpty){
+                //   pro.isEmailAddressFieldReqired(false);
+                //   if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                //      pro.isvalidEmail(true);
+                //   }
+                //   } if (RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                //      pro.isvalidEmail(false);
+                //   }
                   
 
                 
-                 }),
+                //  }),
                   
-                       obsecure: false, 
-                       suffix: Text(""),
-                       ),
+                //        obsecure: false, 
+                //        suffix: Text(""),
+                //        ),
+                       
+                       
+                       
                         pro.EmailAddress==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
@@ -134,38 +141,46 @@ class RegisterScreen extends StatelessWidget {
                    ),
                         SizedBox(height: height*0.016,),
 
+
+
+
+
+
                          Column(
                          crossAxisAlignment: CrossAxisAlignment.start,
                            children: [
-                             CusResetTextfield(
-                        controller: _userName,
+                //              CusResetTextfield(
+                //         controller: _userName,
 
-                  onTap: (){
-                    if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty
-                  ){
-                 pro.isFullFieldReqired(true);
-                  pro.isEmailAddressFieldReqired(true);
-                    pro.isUsernameFieldReqired(true);
-                  }
+                //   onTap: (){
+                //     if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty
+                //   ){
+                //  pro.isFullFieldReqired(true);
+                //   pro.isEmailAddressFieldReqired(true);
+                //     pro.isUsernameFieldReqired(true);
+                //   }
                  
-                  },
-                text: "Username",
-                 onChanged: ((value) {
-                if(value.isEmpty){
-                    pro.isUsernameFieldReqired(true);
-                  }if(value.isNotEmpty){
-                    pro.isUsernameFieldReqired(false);
-                  }
-                  if(RegExp(r'\s').hasMatch(value)){
-                   pro.isSpaceField(true);
-                  }else{
-                   pro.isSpaceField(false);
-                   }
-                 }),
+                //   },
+                // text: "Username",
+                //  onChanged: ((value) {
+                // if(value.isEmpty){
+                //     pro.isUsernameFieldReqired(true);
+                //   }if(value.isNotEmpty){
+                //     pro.isUsernameFieldReqired(false);
+                //   }
+                //   if(RegExp(r'\s').hasMatch(value)){
+                //    pro.isSpaceField(true);
+                //   }else{
+                //    pro.isSpaceField(false);
+                //    }
+                //  }),
                  
-                   obsecure: false,
-                   suffix: Text(""),
-                   ),
+                //    obsecure: false,
+                //    suffix: Text(""),
+                //    ),
+                   
+                   
+                   
                    pro.Username==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
@@ -180,83 +195,63 @@ class RegisterScreen extends StatelessWidget {
                    Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-                       CusResetTextfield(
-                            controller: _password,
-
-                  onTap: (){
+              //          CusResetTextfield(
+              //               controller: _password,
+              //          onTap: (){
                    
-               if(_password.text.isEmpty){
-                pro.isAlertBox(true);
-               }
-               if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
-                  _password.text.isEmpty){
-                 pro.isFullFieldReqired(true);
-                  pro.isEmailAddressFieldReqired(true);
-                    pro.isUsernameFieldReqired(true);
-                   pro.isPasswordFieldReqired(true);
-                  }
-            
-                  },
-                text: "Password",
-                 onChanged: (value) {
-              //     RegExp regex =
-              // RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    
-              // if(value.isEmpty){
-              // pro.isPasswordFieldReqired(true);
-              // print(pro.FieldMatch);
-              //      pro.isFieldMatch(false );
-              
-              //   } 
-              //   else if(value!=_conformPassWord.text){
-              //     print(pro.FieldMatch);
-                
-              //      pro.isFieldMatch(true);
-              //     pro.isPasswordFieldReqired(false);
-              //   }
-              //  else if(!regex.hasMatch(value)){
-              //      pro.isAlertBox(true);
-                  
-              //     }else{
-              //      pro.isPasswordFieldReqired(false);
-              //     //  pro.isFieldMatch(false);
-              //      pro.isAlertBox(false);
-  
+              //  if(_password.text.isEmpty){
+              //   pro.isAlertBox(true);
+              //  }
+              //  if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
+              //     _password.text.isEmpty){
+              //    pro.isFullFieldReqired(true);
+              //     pro.isEmailAddressFieldReqired(true);
+              //       pro.isUsernameFieldReqired(true);
+              //      pro.isPasswordFieldReqired(true);
               //     }
-                 if(value.isEmpty){
-                      pro.isFieldMatch(false);  
-                  pro.isPasswordFieldReqired(true);
-                 }else if(value!=_conformPassWord.text){
-                     print("vfjh");
-                      pro.isFieldMatch(true);
-                      if(_conformPassWord.text.length==0){
-                      pro.isFieldMatch(false);
+            
+              //     },
+              //   text: "Password",
+              //    onChanged: (value) {
+            
+              //    if(value.isEmpty){
+              //         pro.isFieldMatch(false);  
+              //     pro.isPasswordFieldReqired(true);
+              
+              //    }else if(value!=_conformPassWord.text){
+              //        print("vfjh");
+              //         pro.isFieldMatch(true);
+              //         if(_conformPassWord.text.length==0){
+              //         pro.isFieldMatch(false);
 
-                      }                                                                                                                                                                                                                                                                                                             
-                 }
+              //         }                                                                                                                                                                                                                                                                                                             
+              //    }
                  
-                 else{
-                  pro.isPasswordFieldReqired(false);
-                      pro.isFieldMatch(false);                                                                                                                                                                                                                                                                                                             
+              //    else{
+              //     pro.isPasswordFieldReqired(false);
+              //         pro.isFieldMatch(false);                                                                                                                                                                                                                                                                                                             
                      
-                 }
+              //    }
               
                  
                  
                    
                   
-                 },
-                       obsecure: pro.passwordVisibliti==false?true:false, 
-                       suffix: InkWell(
-                        onTap: (() {
-                          pro.isPasswordVisiblity();
-                        }),
-                         child: Icon(pro.passwordVisibliti==false?Icons.visibility_off:
-                         Icons.visibility,color: color2,),
-                       ),
-                       ),
-                        SizedBox(height: height*0.008,),
+              //    },
+              //          obsecure: pro.passwordVisibliti==false?true:false, 
+              //          suffix: InkWell(
+              //           onTap: (() {
+              //             pro.isPasswordVisiblity();
+              //           }),
+              //            child: Icon(pro.passwordVisibliti==false?Icons.visibility_off:
+              //            Icons.visibility,color: color2,),
+              //          ),
+              //          ),
+              //           SizedBox(height: height*0.008,),
 
+                 
+                 
+                 
                   pro.Password==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),
@@ -294,53 +289,57 @@ include 1 uppercase, 1 lowercase,1 number and
                          Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                            children: [
-                             CusResetTextfield(
-                        controller:_conformPassWord,
+              //                CusResetTextfield(
+              //           controller:_conformPassWord,
 
-                  onTap: (){
-                  if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
-                  _password.text.isEmpty&&_conformPassWord.text.isEmpty){
-                 pro.isFullFieldReqired(true);
-                  pro.isEmailAddressFieldReqired(true);
-                    pro.isUsernameFieldReqired(true);
-                   pro.isPasswordFieldReqired(true);
-                //  pro.isConfirmPasswordFieldReqired(true);
+              //     onTap: (){
+              //     if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
+              //     _password.text.isEmpty&&_conformPassWord.text.isEmpty){
+              //    pro.isFullFieldReqired(true);
+              //     pro.isEmailAddressFieldReqired(true);
+              //       pro.isUsernameFieldReqired(true);
+              //      pro.isPasswordFieldReqired(true);
+              //   //  pro.isConfirmPasswordFieldReqired(true);
                     
-                  }
-                  },
-                text: "Confirm Password",
+              //     }
+              //     },
+              //   text: "Confirm Password",
 
 
-                 onChanged: (value) {
+              //    onChanged: (value) {
                
-               if(value.isEmpty){
-                pro.isConfirmPasswordFieldReqired(true);
-                  pro.isFieldMatch(false);
-                print(pro.FieldMatch);
+              //  if(value.isEmpty){
+              //   pro.isConfirmPasswordFieldReqired(true);
+              //     pro.isFieldMatch(false);
+              //   print(pro.FieldMatch);
               
-               }
-               else if(value!=_password.text){
-                  pro.isFieldMatch(true);
-                pro.isConfirmPasswordFieldReqired(false);
+              //  }
+              //  else if(value!=_password.text){
+              //     pro.isFieldMatch(true);
+              //   pro.isConfirmPasswordFieldReqired(false);
 
-               }
-               else{
-                pro.isConfirmPasswordFieldReqired(false);
-                  pro.isFieldMatch(false);
+              //  }
+              //  else{
+              //   pro.isConfirmPasswordFieldReqired(false);
+              //     pro.isFieldMatch(false);
 
-               }
+              //  }
                
                
-                },
+              //   },
                 
-                   obsecure: pro.ConfirmpasswordVisibliti==false?true:false,
-                   suffix:InkWell(
-                    onTap: () {
-                      pro.isConfirmPassword();
+              //      obsecure: pro.ConfirmpasswordVisibliti==false?true:false,
+              //      suffix:InkWell(
+              //       onTap: () {
+              //         pro.isConfirmPassword();
 
-                    },
-                    child: Icon( pro.ConfirmpasswordVisibliti==false?Icons.visibility_off:Icons.visibility_off,color: color2,)),
-                   ),
+              //       },
+              //       child: Icon( pro.ConfirmpasswordVisibliti==false?Icons.visibility_off:Icons.visibility_off,color: color2,)),
+              //      ),
+                  
+                  
+                  
+                  
                    pro.ConfirmPassword==true?Text("Field is Required",style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
                    ),):SizedBox(),

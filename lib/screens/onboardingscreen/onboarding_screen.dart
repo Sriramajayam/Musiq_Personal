@@ -5,6 +5,7 @@ import 'package:loginproviderproject/constants/contant_color.dart';
 import 'package:loginproviderproject/provider/providers.dart';
 import 'package:http/http.dart' as http;
 import 'package:loginproviderproject/screens/loginpage/login_page.dart';
+import 'package:loginproviderproject/screens/loginpage/login_provider_screen.dart';
 import 'package:loginproviderproject/screens/loginpage/signuppage.dart';
 import 'package:loginproviderproject/screens/registerscreen/register_cus_screen.dart';
 import 'package:loginproviderproject/screens/registerscreen/register_screen.dart';
@@ -130,7 +131,7 @@ class OnBoardingScreen extends StatelessWidget {
                                               )),
                                                 InkWell(
                                                   onTap: (){
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginUI(context: context)));
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginProviderUI(context: context)));
                                                   },
                                                   child: Text("Log in",style: GoogleFonts.poppins(
                                                     textStyle: TextStyle(color:Color.fromRGBO(254, 86, 49, 1)),fontSize: 14,fontWeight: FontWeight.w500)

@@ -152,7 +152,7 @@ include 1 uppercase, 1 lowercase,1 number and
                   InkWell(
                     onTap: (){
                       if(_newPassWord.text==_conformPassWord.text){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>signuppage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>signuppage(context: context,)));
                       }
                     },
                     

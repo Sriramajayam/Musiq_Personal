@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:loginproviderproject/provider/login_provider.dart';
 import 'package:loginproviderproject/provider/new_account_provider.dart';
 import 'package:loginproviderproject/provider/providers.dart';
-import 'package:loginproviderproject/screens/bottomnavigationbar/bottom.dart';
-import 'package:loginproviderproject/screens/bottomnavigationbar/bottom_nav_bar.dart';
+
 import 'package:loginproviderproject/screens/networkconnectivity/network_connectivity.dart';
 import 'package:provider/provider.dart';
  void main(){
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (context)=>LoginProvider()),
       ChangeNotifierProvider(create: (context)=>RegisterProvider()),
+      ChangeNotifierProvider(create: (context)=>LogInProvider()),
     ], 
     
     child:

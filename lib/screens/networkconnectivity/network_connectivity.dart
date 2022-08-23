@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/cons_file.dart';
 import 'package:loginproviderproject/provider/providers.dart';
-import 'package:loginproviderproject/screens/bottomnavigationbar/bottom.dart';
-import 'package:loginproviderproject/screens/bottomnavigationbar/bottom_nav_bar.dart';
+
 import 'package:loginproviderproject/screens/splashscreen/splaah_screen.dart';
 import 'package:provider/provider.dart';
 class NetworkConeectivity extends StatefulWidget {

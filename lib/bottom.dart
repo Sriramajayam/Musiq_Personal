@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/contant_color.dart';
@@ -26,7 +28,7 @@ class _BottommState extends State<Bottomm> {
   
   // int _selectedintex=0;
   static  List<Widget>_widgetoptions=<Widget>[
-     signuppage(),
+    //  signuppage(context:),
      MyProfilePages(),
      ResetPassword(),
      ProfilePage(),

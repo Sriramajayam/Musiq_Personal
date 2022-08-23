@@ -139,7 +139,8 @@ Please enter the OTP below""",style: GoogleFonts.poppins(
               SizedBox(height:height*0.152 ,),
         InkWell(
           onTap: (() {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>CusResetPassword())) ;         }),
+            // Navigator.push(context, MaterialPageRoute(builder: (context)=>CusResetPassword())) ;   
+                  }),
           child: ContainerButton(text: "Continue"))
             
             ],

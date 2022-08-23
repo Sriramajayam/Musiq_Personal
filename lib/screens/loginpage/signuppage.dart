@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class signuppage extends StatelessWidget {
-  const signuppage({Key? key}) : super(key: key);
-
+   signuppage({Key? key, required this.context}) : super(key: key);
+final BuildContext context;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

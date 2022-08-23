@@ -26,10 +26,10 @@ class Bottom extends StatefulWidget {
 class _BottomState extends State<Bottom> {
   int _selectedintex=0;
 static  List<Widget>_widgetoptions=<Widget>[
-signuppage(),
-signuppage(),
-signuppage(),
-signuppage(),
+// signuppage(),
+// signuppage(),
+// signuppage(),
+// signuppage(),
 ];
   
 
