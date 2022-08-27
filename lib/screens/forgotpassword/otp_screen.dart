@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/cons_file.dart';
-import 'package:loginproviderproject/screens/forgotpassword/cus_reset_password.dart';
+// import 'package:loginproviderproject/screens/forgotpassword/cus_reset_password.dart';
 import 'package:loginproviderproject/screens/forgotpassword/reset_password.dart';
 import 'package:loginproviderproject/widgets/container_button.dart';
 import 'package:loginproviderproject/widgets/cus_re_pass.dart';
@@ -139,7 +139,7 @@ Please enter the OTP below""",style: GoogleFonts.poppins(
               SizedBox(height:height*0.152 ,),
         InkWell(
           onTap: (() {
-            // Navigator.push(context, MaterialPageRoute(builder: (context)=>CusResetPassword())) ;   
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPassword())) ;   
                   }),
           child: ContainerButton(text: "Continue"))
             

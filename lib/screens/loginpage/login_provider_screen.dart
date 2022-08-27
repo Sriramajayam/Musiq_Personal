@@ -177,7 +177,7 @@ Provider.of<LogInProvider>(context).getvalues();
                                           InkWell(
                                             onTap: ()async{
                                               print("ram");
-                                              pro.saveDetails();
+                                              //  pro.saveDetails();
                                               pro.PostApi(context);
                                          
                                             },

@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
+@override
+
   @override
   Widget build(BuildContext context) {
     final pro=Provider.of<ForgotPasswordProvider>(context);
@@ -32,6 +34,7 @@ class ForgotPassword extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: (){
+                   pro.forgotEmail.value.isEmpty;
                       Navigator.pop(context);
 
                   },

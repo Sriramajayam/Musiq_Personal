@@ -3,21 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/contant_color.dart';
 import 'package:loginproviderproject/provider/new_account_provider.dart';
 import 'package:loginproviderproject/provider/providers.dart';
+import 'package:loginproviderproject/provider/register_provider.dart';
 import 'package:loginproviderproject/widgets/container_button.dart';
 import 'package:loginproviderproject/widgets/cus_re_pass.dart';
 import 'package:loginproviderproject/widgets/reset_password_widget.dart';
 import 'package:provider/provider.dart';
 class RegisterScreen extends StatelessWidget {
    RegisterScreen({Key? key}) : super(key: key);
-  TextEditingController _fullNamee=TextEditingController();
-    TextEditingController _emailAddress=TextEditingController();
-    TextEditingController _userName=TextEditingController();
-    TextEditingController _password=TextEditingController();
-    TextEditingController _conformPassWord=TextEditingController();
-    // @override
-    // void dispose(){
-    //   super.dispose();
-    // }
+
+ 
   @override
   Widget build(BuildContext context) {
   
@@ -31,21 +25,14 @@ class RegisterScreen extends StatelessWidget {
          child: Padding(
            padding: const EdgeInsets.only(right: 16,left: 16),
            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                   SizedBox(height: height*0.032,),
                      Row(
                       children: [
                         InkWell(
                           onTap: (){ 
-                            pro.isSpaceField(false);
-                            pro.isvalidEmail(false);
-                            pro.isFieldMatch(false);
-                            pro.isFullFieldReqired(false);
-                            pro.isAlertBox(false);
-                            pro.isConfirmPasswordFieldReqired(false);
-                            pro.isPasswordFieldReqired(false);
-                            pro.isUsernameFieldReqired(false);
-                            pro.isEmailAddressFieldReqired(false);
+                           
                             Navigator.pop(context);
                           },
                           child: Icon(Icons.arrow_back_ios,color: color2,)),
@@ -57,300 +44,62 @@ class RegisterScreen extends StatelessWidget {
                       ],
                     ),
                         SizedBox(height: height*0.032,),
-                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                //    CusResetTextfield(
-                //   controller: _fullNamee,
-                //   onTap: (){
-                //       if(_fullNamee.text.isEmpty
-                //   ){
-                //  pro.isFullFieldReqired(true);
-                 
-                //   }
-                //   },
-                //   text:"Full Name",
-                //   onChanged: ((value) {
-                     
-                //   if(value==null||value.isEmpty){
-                //   pro.isFullFieldReqired(true);
-                //   }else if(_fullNamee.text.isNotEmpty){
-                //   pro.isFullFieldReqired(false);
-                //   }
-                //   print(value);
-                //   }
-                //   ),
-                //   obsecure: false, 
-                //   suffix: Text(""),),
-                 
-                  
-                  SizedBox(height: height*0.008,),
-                  pro.FullNameField==true?Text("Field is Required",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox()
-                         ],
-                       ),
-                        SizedBox(height: height*0.016,),
-
-                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [
-                //        CusResetTextfield(
-                //             controller: _emailAddress,
-                
-                
-                
-                //   onTap: (){
-                // if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty
-                //   ){
-                //  pro.isFullFieldReqired(true);
-                //   pro.isEmailAddressFieldReqired(true);
-                //   }
-                //   },
-                // text: "Email Address",
-                //  onChanged: ((value) {
-                //   if(value.isEmpty){
-                //     pro.isEmailAddressFieldReqired(true);
-                //     pro.isvalidEmail(false);
-                //   } else if(value.isNotEmpty){
-                //   pro.isEmailAddressFieldReqired(false);
-                //   if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                //      pro.isvalidEmail(true);
-                //   }
-                //   } if (RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                //      pro.isvalidEmail(false);
-                //   }
-                  
-
-                
-                //  }),
-                  
-                //        obsecure: false, 
-                //        suffix: Text(""),
-                //        ),
-                       
-                       
-                       
-                        pro.EmailAddress==true?Text("Field is Required",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                   pro.ValidEmail==true?Text("Invalid Email Format",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                     ],
-                   ),
-                        SizedBox(height: height*0.016,),
-
-
-
-
-
-
-                         Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                           children: [
-                //              CusResetTextfield(
-                //         controller: _userName,
-
-                //   onTap: (){
-                //     if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty
-                //   ){
-                //  pro.isFullFieldReqired(true);
-                //   pro.isEmailAddressFieldReqired(true);
-                //     pro.isUsernameFieldReqired(true);
-                //   }
-                 
-                //   },
-                // text: "Username",
-                //  onChanged: ((value) {
-                // if(value.isEmpty){
-                //     pro.isUsernameFieldReqired(true);
-                //   }if(value.isNotEmpty){
-                //     pro.isUsernameFieldReqired(false);
-                //   }
-                //   if(RegExp(r'\s').hasMatch(value)){
-                //    pro.isSpaceField(true);
-                //   }else{
-                //    pro.isSpaceField(false);
-                //    }
-                //  }),
-                 
-                //    obsecure: false,
-                //    suffix: Text(""),
-                //    ),
-                   
-                   
-                   
-                   pro.Username==true?Text("Field is Required",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                     pro.Space==true?Text("Field does not contain space",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                    
-                           ],
-                         ),
-                        SizedBox(height: height*0.016,),
-
-                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [
-              //          CusResetTextfield(
-              //               controller: _password,
-              //          onTap: (){
-                   
-              //  if(_password.text.isEmpty){
-              //   pro.isAlertBox(true);
-              //  }
-              //  if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
-              //     _password.text.isEmpty){
-              //    pro.isFullFieldReqired(true);
-              //     pro.isEmailAddressFieldReqired(true);
-              //       pro.isUsernameFieldReqired(true);
-              //      pro.isPasswordFieldReqired(true);
-              //     }
-            
-              //     },
-              //   text: "Password",
-              //    onChanged: (value) {
-            
-              //    if(value.isEmpty){
-              //         pro.isFieldMatch(false);  
-              //     pro.isPasswordFieldReqired(true);
-              
-              //    }else if(value!=_conformPassWord.text){
-              //        print("vfjh");
-              //         pro.isFieldMatch(true);
-              //         if(_conformPassWord.text.length==0){
-              //         pro.isFieldMatch(false);
-
-              //         }                                                                                                                                                                                                                                                                                                             
-              //    }
-                 
-              //    else{
-              //     pro.isPasswordFieldReqired(false);
-              //         pro.isFieldMatch(false);                                                                                                                                                                                                                                                                                                             
-                     
-              //    }
-              
-                 
-                 
-                   
-                  
-              //    },
-              //          obsecure: pro.passwordVisibliti==false?true:false, 
-              //          suffix: InkWell(
-              //           onTap: (() {
-              //             pro.isPasswordVisiblity();
-              //           }),
-              //            child: Icon(pro.passwordVisibliti==false?Icons.visibility_off:
-              //            Icons.visibility,color: color2,),
-              //          ),
-              //          ),
-              //           SizedBox(height: height*0.008,),
-
-                 
-                 
-                 
-                  pro.Password==true?Text("Field is Required",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                        SizedBox(height: height*0.016,),
-                  pro.Alertbox==true  ?     
-                   Container(
-                    height: 80,
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
-                    color: Color.fromRGBO(255, 255, 255, 0.05)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 12,right: 12),
-                      child: Center(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.info,color: color3,),
-                            SizedBox(width: 10,),
-                            Text("""The password must contain alteast 8 characters,
-include 1 uppercase, 1 lowercase,1 number and
-1 special character.""",style: GoogleFonts.poppins( 
-          textStyle: TextStyle(
-            color: color3,fontSize: 10,fontWeight: FontWeight.w400
-          )
-            ),
-             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                   ):SizedBox(),
-                     ]
-                   ),
+                      CustomeTextfield(onTap: () {
                         
-                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                           children: [
-              //                CusResetTextfield(
-              //           controller:_conformPassWord,
-
-              //     onTap: (){
-              //     if(_fullNamee.text.isEmpty&&_emailAddress.text.isEmpty&&_userName.text.isEmpty&&
-              //     _password.text.isEmpty&&_conformPassWord.text.isEmpty){
-              //    pro.isFullFieldReqired(true);
-              //     pro.isEmailAddressFieldReqired(true);
-              //       pro.isUsernameFieldReqired(true);
-              //      pro.isPasswordFieldReqired(true);
-              //   //  pro.isConfirmPasswordFieldReqired(true);
-                    
-              //     }
-              //     },
-              //   text: "Confirm Password",
-
-
-              //    onChanged: (value) {
-               
-              //  if(value.isEmpty){
-              //   pro.isConfirmPasswordFieldReqired(true);
-              //     pro.isFieldMatch(false);
-              //   print(pro.FieldMatch);
+                      },
+                       text: "Full Name", 
+                       onChanged: (value) {
+                         pro.fullNameError(value);
+                       }, 
+                       obsecure: false, 
+                       suffix: Text("")),
+                  Text(pro.fullname.error,style: TextStyle(color: Colors.red),),
+                 CustomeTextfield(onTap: () {
+                        
+                      },
+                       text: "Email Address", 
+                       onChanged: (value) {
+                     pro.emailAddressError(value);
+                       }, 
+                       obsecure: false, 
+                       suffix: Text("")),
+                  Text(pro.emailAdress.error,style: TextStyle(color: Colors.red),),
+                 CustomeTextfield(onTap: () {
+                        
+                          },
+                       text: "Username", 
+                       onChanged: (value) {
+                         pro.userNameError(value);
+                       }, 
+                       obsecure: false, 
+                       suffix: Text("")),
+           
+                     CustomeTextfield(onTap: () {
+                        
+                      },
+                       text: "Password", 
+                       onChanged: (value) {
+                         pro.passWordError(value);
+                       
+                       }, 
+                       obsecure: false, 
+                       suffix: Text("")),
+                       Text(pro.password.error,style: TextStyle(color: Colors.red),),
+          
+                 CustomeTextfield(onTap: () {
+                        
+                      },
+                       text: "Confirm Password", 
+                       onChanged: (value) {
+                         pro.confirmPassWordError(value);
+                      
+                       }, 
+                       obsecure: false, 
+                       suffix: Text("")),
+                       Text(pro.confirmPassword.error,style: TextStyle(color: Colors.red),),
+                        SizedBox(height:16 ,),
+                       ContainerButton(text: "Create account"),
               
-              //  }
-              //  else if(value!=_password.text){
-              //     pro.isFieldMatch(true);
-              //   pro.isConfirmPasswordFieldReqired(false);
-
-              //  }
-              //  else{
-              //   pro.isConfirmPasswordFieldReqired(false);
-              //     pro.isFieldMatch(false);
-
-              //  }
-               
-               
-              //   },
-                
-              //      obsecure: pro.ConfirmpasswordVisibliti==false?true:false,
-              //      suffix:InkWell(
-              //       onTap: () {
-              //         pro.isConfirmPassword();
-
-              //       },
-              //       child: Icon( pro.ConfirmpasswordVisibliti==false?Icons.visibility_off:Icons.visibility_off,color: color2,)),
-              //      ),
-                  
-                  
-                  
-                  
-                   pro.ConfirmPassword==true?Text("Field is Required",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-                    pro.FieldMatch==true?Text("Field does'nt Match",style: GoogleFonts.poppins(
-                    textStyle: TextStyle(color: Color.fromRGBO(234, 41, 41, 1),fontSize: 12,fontWeight: FontWeight.w500)
-                   ),):SizedBox(),
-
-                           ],
-                         ),
-                   SizedBox(height: height*0.150,),
-                   ContainerButton(text: "Create account"),
                ],
            ),
          ),

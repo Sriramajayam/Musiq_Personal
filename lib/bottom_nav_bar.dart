@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/contant_color.dart';
 import 'package:loginproviderproject/provider/providers.dart';
-import 'package:loginproviderproject/screens/loginpage/login_page.dart';
 import 'package:loginproviderproject/screens/loginpage/signuppage.dart';
 import 'package:provider/provider.dart';
 

@@ -4,10 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loginproviderproject/constants/contant_color.dart';
 import 'package:loginproviderproject/provider/providers.dart';
 import 'package:http/http.dart' as http;
-import 'package:loginproviderproject/screens/loginpage/login_page.dart';
 import 'package:loginproviderproject/screens/loginpage/login_provider_screen.dart';
 import 'package:loginproviderproject/screens/loginpage/signuppage.dart';
-import 'package:loginproviderproject/screens/registerscreen/register_cus_screen.dart';
+
 import 'package:loginproviderproject/screens/registerscreen/register_screen.dart';
 // import 'package:loginproviderproject/screens/signuppage.dart';
 import 'package:loginproviderproject/widgets/login_page_textfield.dart';

@@ -38,17 +38,17 @@ class LogInProvider extends ChangeNotifier {
     print(await getvalue("email"));
     print(await getvalue("password"));
 
-
-
   }
 
   void changeEmail(String value) {
     print(value);
     if (value.isEmpty) {
       _email = LoginErrors(value, "Field is Required");
-    } else if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+    } 
+    else if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
       _email = LoginErrors(value, "Invalid email Format");
-    } else {
+    } 
+    else {
       _email = LoginErrors(value, "");
     }
     notifyListeners();

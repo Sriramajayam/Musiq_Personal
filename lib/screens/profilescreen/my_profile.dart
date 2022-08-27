@@ -171,7 +171,7 @@ class _MyProfilePagesState extends State<MyProfilePages> {
                 InkWell(
                   onTap: (() {
                     
-            //  image = null;
+         
                   
             
                    setState(() {

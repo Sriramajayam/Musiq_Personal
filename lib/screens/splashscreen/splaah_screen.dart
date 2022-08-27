@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:loginproviderproject/bottom.dart';
 import 'package:loginproviderproject/constants/cons_file.dart';
 import 'package:loginproviderproject/screens/loginpage/signuppage.dart';
 
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   cheaklogged()async{
 var isload= await securestoragae.read(key: "islogged") ?? "false";
  if(isload=="true"){
-  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>signuppage(context: context)));
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>OnBoardingScreen()));
  }
  else{
  
